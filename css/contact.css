@@ -1,0 +1,215 @@
+@charset "utf-8";
+#box1 {
+  height: 200px;
+  width: 250px;
+  margin-top: -60px;
+  z-index: 0;
+  grid-area: box1;
+}
+
+#box2 {
+  height: 250px;
+  width: 350px;
+  margin-top: -60px;
+  z-index: 1;
+  grid-area: box2;
+}
+
+#box3 {
+  height: 200px;
+  width: 250px;
+  margin-top: -60px;
+  z-index: 0;
+  grid-area: box3;
+}
+
+.buttonGrid {
+  display: grid;
+  grid-template-columns: 100px 100px;
+  justify-content: end;
+  width: 100%;
+}
+
+.button {
+  width: 70px;
+  height: 40px;
+  border: 2px solid rgb(10, 90, 23);
+  border-radius: 25px;
+  background-color: transparent;
+  color: black;
+  font-size: 18px;
+  margin-right: 40px !important;
+  margin-top: 20px;
+}
+
+.button:hover {
+  background-color: rgb(10, 90, 23);
+  transition-duration: .5s;
+  border: 2px solid white;
+}
+
+.button:hover {
+  color: white
+}
+
+.button:active {
+  opacity: .1;
+}
+
+.button:focus {
+  outline: 0;
+}
+
+.contactBox {
+  padding-top: 25px;
+  border-radius: 25px;
+  z-index: 1;
+  background-color: white;
+  box-shadow: 0px 0px 25px black;
+}
+
+.contactContainer {
+  padding-top: 100px;
+  padding-bottom: 210px;
+  margin-left: auto;
+  margin-right: auto;
+  background-image: url("../images/5.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  background-size: cover;
+}
+
+#contactEmail {
+  color: black;
+  text-decoration: none;
+}
+
+#contactForm {
+  height: auto;
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: 1fr;
+  background-color: white;
+  border-radius: 25px;
+  width: 90%;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 45px 0px;
+}
+
+#contactInfoBar {
+  max-width: 500px;
+  background-color: none;
+  display: grid;
+  grid-template-areas: "box1 box2 box3";
+  margin: auto;
+  margin-top: -30px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+#contactInfoBar hr {
+  margin: 15px auto !important;
+}
+
+.contactMethod {
+  margin: 10px auto;
+}
+
+#contactPhone {
+  color: black;
+  text-decoration: none;
+}
+
+.input {
+  width: 80%;
+  margin: 2px auto;
+  padding: 4px 0px;
+}
+
+#contactTitle {
+  color: black;
+  font-size: 60px;
+  text-align: center;
+  margin: 20px 0px;
+}
+
+.socialIcon {
+  color: black;
+  margin: 15px;
+}
+
+.socialIcon:hover {
+  color: rgb(10, 90, 23);
+  transition-duration: .3s;
+}
+
+#subject {
+  resize: vertical;
+  height: 100px;
+}
+
+@media only screen and (max-width: 920px) {
+  #box1 {
+    height: 100px;
+    width: 150px;
+    margin-top: -60px;
+    z-index: 0;
+  }
+  #box2 {
+    height: 180px;
+    width: 250px;
+    margin-top: -60px;
+    z-index: 1;
+    font-size: 15px;
+  }
+  #box3 {
+    height: 100px;
+    width: 150px;
+    margin-top: -60px;
+    z-index: 0;
+  }
+  #contactInfoBar hr {
+    margin: 5px auto !important;
+  }
+  .socialIcon {
+    margin: 0px 8px;
+  }
+  .hide {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #box1 {
+    height: 100px;
+    width: 150px;
+    z-index: 3;
+    justify-self: center;
+  }
+  #box2 {
+    height: 180px;
+    width: 250px;
+    z-index: 2;
+    font-size: 15px;
+  }
+  #box3 {
+    height: 100px;
+    width: 150px;
+    z-index: 1;
+    justify-self: end;
+  }
+  #contactInfoBar {
+    margin-top: 100px;
+    max-width: 500px;
+    height: 350px;
+    grid-template-areas: "box2" "box1" "box3";
+  }
+  #footer {
+    margin-top: 0px;
+  }
+}
