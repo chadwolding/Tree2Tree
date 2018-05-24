@@ -36,7 +36,7 @@ window.onresize = function() {
 function fullScreen(id) {
     "use strict";
     modal.style.display = "block";
-    modalImg.src = "images/" + id + ".png";
+    modalImg.src = "images/gallery/" + id + ".jpeg";
 }
 
 function pleaseClose() {
