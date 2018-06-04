@@ -37,7 +37,7 @@
   border-radius: 25px;
   background-color: transparent;
   color: black;
-  font-size: 18px;
+  font-size: 22px;
   margin-right: 40px !important;
   margin-top: 20px;
 }
@@ -129,6 +129,20 @@
   width: 80%;
   margin: 2px auto;
   padding: 4px 0px;
+  font-size: 22px;
+}
+
+.inputErrorMessage{
+  color: red;
+  width: 80%;
+  margin: 2px auto;
+  padding-top: 0px;
+  font-size: 22px;
+}
+
+#message{
+  resize: vertical;
+  min-height: 100px;
 }
 
 #contactTitle {
