@@ -8,6 +8,11 @@ require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/SMTP.php';
 require 'PHPMailer/src/Exception.php';
 
+// Runs if the cancel button is clicked for sending a message to Josh
+if (isset($_POST['cancelMessageButton'])) {
+    header('location: #contactContainer');
+}
+
 // Runs if the submit button is clicked to send a message.
 if (isset($_POST['sendMessageButton'])) {
 
@@ -34,7 +39,7 @@ if (isset($_POST['sendMessageButton'])) {
 
     // Validate last name.
     if (empty($last_name)) {
-        $last_name_error = 'First name is required';
+        $last_name_error = 'Last name is required';
     } elseif (strlen($last_name) > 40) {
         $last_name_error = 'Last name must be less than 40 characters';
     }
@@ -42,7 +47,7 @@ if (isset($_POST['sendMessageButton'])) {
     // Validate phone number.
     if (!empty($phone)) {
         if (!preg_match('/^\+?(\(?[0-9]{3}\)?|[0-9]{3})[-\.\s]?[0-9]{3}[-\.\s]?[0-9]{4}$/', $phone)) {
-            $phone_error = 'Please enter a valid phone number ' . $phone;
+            $phone_error = 'Please enter a valid phone number';
         }
     }
 
@@ -93,6 +98,9 @@ if (isset($_POST['sendMessageButton'])) {
             //echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
         }
     }
+    else{
+        echo '<script>alert("Something went wrong. Please try again.")</script>';
+    }
 
 
 }
@@ -129,13 +137,13 @@ if (isset($_POST['sendMessageButton'])) {
 <body>
 <div style="clear: both;"></div>
 <div>
-    <img id="title" src="images/logo.jpg"></img>
+    <img id="title" src="images/logo.jpg">
     <ul class="nav" id="pageLinks">
         <li><a href="#">Home</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="#">Gallery</a></li>
+        <li><a href="#serviceContainer">Services</a></li>
+        <li><a href="#aboutContainer">About</a></li>
+        <li><a href="#galleryContainer">Gallery</a></li>
+        <li><a href="#contactContainer">Contact</a></li>
         <!--  <i id="topPhone" class="fa fa-phone fa-lg right contact" aria-hidden="true"> 715-250-3634</i> -->
         <button id="collapseBar" onclick="toggleNavPage()"><i class="fa fa-bars right fa-2x" aria-hidden="true"></i>
         </button>
@@ -146,11 +154,13 @@ if (isset($_POST['sendMessageButton'])) {
     <div class="menuContent">
         <a id="phone" href="#"><i class="fa fa-phone fa-lg" aria-hidden="true"></i>715-250-3634</a>
         <a><img id="menuImg" src="images/logo.jpg"></a>
-        <a href="#">Home</a>
-        <a href="#">Services</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-        <a href="#">Gallery</a>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#serviceContainer">Services</a></li>
+            <li><a href="#aboutContainer">About</a></li>
+            <li><a href="#galleryContainer">Gallery</a></li>
+            <li><a href="#contactContainer">Contact</a></li>
+        </ul>
         <hr>
         <h3>7 Days A Week</h3>
         <h3>7AM - 7PM</h3>
@@ -163,23 +173,28 @@ if (isset($_POST['sendMessageButton'])) {
     </div>
 </div>
 
-<!-- <div id="imgBreak1"></div> -->
-
-<div class="container">
+<div class="container" id="serviceContainer">
     <h1 id="serviceTitle" class="sectionTitle">Services</h1>
     <div id="serviceGrid">
         <div id="trimming">
-            <img src="images/trimming_sm.jpg" class="serviceImg"></img>
+            <div class="serviceThumbnail">
+                <img src="images/trimming_sm.jpg" class="portrait">
+            </div>
             <h1>Pruning/Trimming</h1>
             <p>Need some more sun in your backyard? We can handle any job.</p>
         </div>
         <div id="removal">
-            <img src="images/tree_removal_sm.jpg" class="serviceImg"></img>
+            <div class="serviceThumbnail">
+                <img src="images/tree_removal_sm.jpg">
+            </div>
             <h1>Tree Removal</h1>
             <p>No matter how big or small, in an open field or growing between the garage and house, we can handle any
                 tree you need removed.</p>
         </div>
-        <div id="estimate"><img src="images/estimate.jpg" class="serviceImg"></img>
+        <div id="estimate">
+            <div class="serviceThumbnail">
+                <img src="images/estimate.jpg">
+            </div>
             <h1>Free Estimates</h1>
             <p>Done hesitate, give us a call and we'll make it out to your house as soon as we can for a free
                 estimate.</p>
@@ -187,7 +202,7 @@ if (isset($_POST['sendMessageButton'])) {
     </div>
 </div>
 
-<div class="aboutContainer">
+<div class="aboutContainer" id="aboutContainer">
     <div class="aboutGrid">
         <div id="aboutTextContainer">
             <h1 id="aboutTitle" class="sectionTitle">About</h1>
@@ -217,18 +232,37 @@ if (isset($_POST['sendMessageButton'])) {
     </div>
 </div>
 
-<div class="galleryContainer">
+<div class="galleryContainer" id="galleryContainer">
     <h1 id="galleryTitle" class="sectionTitle">Gallery</h1>
     <div class="galleryGrid">
-        <img id="Gallery_1" src="images/gallery/Gallery_1.jpeg" onclick="fullScreen(id)" class="serviceImg">
-        <img id="Gallery_2" src="images/gallery/Gallery_2.jpeg" onclick="fullScreen(id)" class="serviceImg">
-        <img id="Gallery_3" src="images/gallery/Gallery_3.jpeg" onclick="fullScreen(id)" class="serviceImg">
-        <img id="Gallery_4" src="images/gallery/Gallery_4.jpeg" onclick="fullScreen(id)" class="serviceImg">
-        <img id="Gallery_5" src="images/gallery/Gallery_5.jpeg" onclick="fullScreen(id)" class="serviceImg">
-        <img id="Gallery_6" src="images/gallery/Gallery_6.jpeg" onclick="fullScreen(id)" class="serviceImg">
-        <img id="Gallery_7" src="images/gallery/Gallery_7.jpeg" onclick="fullScreen(id)" class="serviceImg">
-        <img id="Gallery_8" src="images/gallery/Gallery_8.jpeg" onclick="fullScreen(id)" class="serviceImg">
-        <img id="Gallery_9" src="images/gallery/Gallery_9.jpeg" onclick="fullScreen(id)" class="serviceImg">
+        <div class="thumbnail">
+            <img id="Gallery_1" src="images/gallery/Gallery_1.jpeg" onclick="fullScreen(id)" class="serviceImg">
+        </div>
+        <div class="thumbnail">
+            <img id="Gallery_2" src="images/gallery/Gallery_2.jpeg" onclick="fullScreen(id)" class="serviceImg">
+        </div>
+        <div class="thumbnail">
+            <img id="Gallery_3" src="images/gallery/Gallery_3.jpeg" onclick="fullScreen(id)" class="serviceImg">
+        </div>
+        <div class="thumbnail">
+            <img id="Gallery_4" src="images/gallery/Gallery_4.jpeg" onclick="fullScreen(id)" class="serviceImg">
+        </div>
+        <div class="thumbnail">
+            <img id="Gallery_5" src="images/gallery/Gallery_5.jpeg" onclick="fullScreen(id)" class="serviceImg">
+        </div>
+        <div class="thumbnail">
+            <img id="Gallery_6" src="images/gallery/Gallery_6.jpeg" onclick="fullScreen(id)" class="serviceImg">
+        </div>
+        <div class="thumbnail">
+            <img id="Gallery_7" src="images/gallery/Gallery_7.jpeg" onclick="fullScreen(id)" class="serviceImg">
+        </div>
+        <div class="thumbnail">
+            <img id="Gallery_8" src="images/gallery/Gallery_8.jpeg" onclick="fullScreen(id)"
+                 class="serviceImg portrait">
+        </div>
+        <div class="thumbnail">
+            <img id="Gallery_9" src="images/gallery/Gallery_9.jpeg" onclick="fullScreen(id)" class="serviceImg">
+        </div>
     </div>
 </div>
 
@@ -239,29 +273,35 @@ if (isset($_POST['sendMessageButton'])) {
     <div id="caption"></div>
 </div>
 
-<div class="contactContainer">
+<div class="contactContainer" id="contactContainer">
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" id="contactForm">
         <h1 id="contactTitle" class="sectionTitle">Message</h1>
         <label class="input" for="fname">First Name</label>
-        <input class="input" type="text" id="fname" name="firstName"
-               value="<?php if (isset($first_name)) echo $first_name; ?>">
-        <span class="inputErrorMessage"><?php if (isset($first_name_error)) echo $first_name_error; ?></span>
+        <input class="input <?php if (!empty($first_name_error)) echo 'inputError' ?>" type="text" id="fname"
+               name="firstName"
+               value="<?php if (!empty($first_name)) echo $first_name; ?>">
+        <span class="inputErrorMessage"><?php if (!empty($first_name_error)) echo $first_name_error; ?></span>
         <label class="input" for="lname">Last Name</label>
-        <input class="input" type="text" id="lname" name="lastName"
-               value="<?php if (isset($last_name)) echo $last_name; ?>">
-        <span class="inputErrorMessage"><?php if (isset($last_name_error)) echo $last_name_error; ?></span>
+        <input class="input <?php if (!empty($last_name_error)) echo 'inputError' ?>" type="text" id="lname"
+               name="lastName"
+               value="<?php if (!empty($last_name)) echo $last_name; ?>">
+        <span class="inputErrorMessage"><?php if (!empty($last_name_error)) echo $last_name_error; ?></span>
         <label class="input" for="email">Email</label>
-        <input class="input" type="text" id="email" name="email" value="<?php if (isset($email)) echo $email; ?>">
-        <span class="inputErrorMessage"><?php if (isset($email_error)) echo $email_error; ?></span>
+        <input class="input <?php if (!empty($email_error)) echo 'inputError' ?>" type="text" id="email"
+               name="email"
+               value="<?php if (!empty($email)) echo $email; ?>">
+        <span class="inputErrorMessage"><?php if (!empty($email_error)) echo $email_error; ?></span>
         <label class="input" for="phone">Phone (optional)</label>
-        <input class="input" type="text" id="phonefname" name="phone" value="<?php if (isset($phone)) echo $phone; ?>">
-        <span class="inputErrorMessage"><?php if (isset($phone_error)) echo $phone_error; ?></span>
+        <input class="input <?php if (!empty($phone_error)) echo 'inputError' ?>" type="text" id="phonefname"
+               name="phone" value="<?php if (!empty($phone)) echo $phone; ?>">
+        <span class="inputErrorMessage"><?php if (!empty($phone_error)) echo $phone_error; ?></span>
         <label class="input" for="subject">Message</label>
-        <textarea class="input" id="message" name="message"><?php if (isset($message)) echo $message; ?></textarea>
-        <span class="inputErrorMessage"><?php if (isset($message_error)) echo $message_error; ?></span>
+        <textarea class="input <?php if (!empty($message_error)) echo 'inputError' ?>" id="message"
+                  name="message"><?php if (!empty($message)) echo $message; ?></textarea>
+        <span class="inputErrorMessage"><?php if (!empty($message_error)) echo $message_error; ?></span>
         <div class="buttonGrid">
             <input type="submit" value="Send" class="button" id="sendMessageButton" name="sendMessageButton">
-            <input type="reset" value="Clear" class="button" id="cancelButton">
+            <input type="submit" value="Clear" class="button" id="cancelButton" name="cancelMessageButton">
         </div>
     </form>
 </div>
@@ -289,7 +329,7 @@ if (isset($_POST['sendMessageButton'])) {
 </div>
 
 <div id="footer">
-    <h3>© 2018, Tree To Tree, Care LLC. All Rights Reserved.</h3>
+    <h3>© 2018, Tree To Tree Care LLC. All Rights Reserved.</h3>
 </div>
 
 </body>

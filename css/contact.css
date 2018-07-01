@@ -125,11 +125,21 @@
   text-decoration: none;
 }
 
+input, textarea{
+  text-indent: 5px;
+}
+
 .input {
   width: 80%;
   margin: 2px auto;
   padding: 4px 0px;
   font-size: 22px;
+  border-radius: 5px;
+}
+
+.inputError{
+  border: 1px solid red;
+  box-shadow: 0px 0px 8px red;
 }
 
 .inputErrorMessage{
