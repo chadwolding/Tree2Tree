@@ -120,7 +120,7 @@ p{
   margin: 0;
   padding: 5px;
   text-decoration: none;
-  font-size: 30px;
+  font-size: 25px;
   color: black;
   display: block;
   transition: 0s;
@@ -167,6 +167,15 @@ p{
   }
 }
 
+@media only screen and (max-width: 900px) {
+  #title {
+    top: 10px;
+    left: 10px;
+    height: 100px;
+    position: absolute;
+  }
+}
+
 @media only screen and (max-width: 460px) {
   #collapseBar {
     position: fixed;
@@ -180,7 +189,6 @@ p{
   #title {
     top: 10px;
     left: 10px;
-    height: 150px;
     position: absolute;
   }
   .nav {

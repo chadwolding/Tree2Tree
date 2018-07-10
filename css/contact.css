@@ -102,7 +102,6 @@
 
 #contactInfoBar {
   max-width: 500px;
-  background-color: none;
   display: grid;
   grid-template-areas: "box1 box2 box3";
   margin: auto;
@@ -127,6 +126,7 @@
 
 input, textarea{
   text-indent: 5px;
+  border: 1px solid black;
 }
 
 .input {
@@ -139,7 +139,7 @@ input, textarea{
 
 .inputError{
   border: 1px solid red;
-  box-shadow: 0px 0px 8px red;
+  box-shadow: 0px 0px 4px red;
 }
 
 .inputErrorMessage{

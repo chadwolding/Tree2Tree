@@ -72,33 +72,39 @@ if (isset($_POST['sendMessageButton'])) {
         $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
         try {
             //Server settings
-            $mail->SMTPDebug = 2;                                 // Enable verbose debug output
+            $mail->SMTPDebug = 0;                                 // Enable verbose debug output
             $mail->isSMTP();                                      // Set mailer to use SMTP
             $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
             $mail->SMTPAuth = true;                               // Enable SMTP authentication
+
+            // ADD JOSH'S INFO
             $mail->Username = '1249700@gmail.com';                 // SMTP username
             $mail->Password = 'ChWo3433';                           // SMTP password
+
             $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
             $mail->Port = 587;                                    // TCP port to connect to
 
             //Recipients
             // EDIT WITH JOSH'S INFO
-            $mail->setFrom($email, $first_name . ' ' . $last_name);
-            $mail->addAddress('1249700@gmail.com');     // Add a recipient
+            $mail->setFrom('1249700@gmail.com');
+            $mail->addAddress('1249700@gmail.com');
+            $mail->addReplyTo($email);     // Add a recipient
 
             //Content
             $mail->isHTML(true);                                  // Set email format to HTML
             $mail->Subject = $first_name . ' ' . $last_name . ' sent you a message!';
-            $mail->Body = $message;
+            $mail->Body = $message . '<br><br><h3>Phone Number: <a href="tel:1' . $phone . '"> ' . $phone . ' </h3>';
             //$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
             $mail->send();
-            echo '<script>alert("Your message has been sent.")</script>';
+            echo '<script>alert("Your message has been sent.");
+            window.location = "http://www.tree2treellc.com/index.php";
+            </script>';
+
         } catch (Exception $e) {
             //echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
         }
-    }
-    else{
+    } else {
         echo '<script>alert("Something went wrong. Please try again.")</script>';
     }
 
@@ -260,8 +266,8 @@ if (isset($_POST['sendMessageButton'])) {
             <img id="Gallery_8" src="images/gallery/Gallery_8.jpeg" onclick="fullScreen(id)"
                  class="serviceImg portrait">
         </div>
-        <div class="thumbnail">
-            <img id="Gallery_9" src="images/gallery/Gallery_9.jpeg" onclick="fullScreen(id)" class="serviceImg">
+        <div class="thumbnail" id="Gallery_9">
+            <img src="images/gallery/Gallery_9.jpeg" onclick="fullScreen(id)" class="serviceImg">
         </div>
     </div>
 </div>
