@@ -78,16 +78,16 @@ if (isset($_POST['sendMessageButton'])) {
             $mail->SMTPAuth = true;                               // Enable SMTP authentication
 
             // ADD JOSH'S INFO
-            $mail->Username = '1249700@gmail.com';                 // SMTP username
-            $mail->Password = 'ChWo3433';                           // SMTP password
+            $mail->Username = 'example@gmail.com';                 // SMTP username
+            $mail->Password = 'password';                           // SMTP password
 
             $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
             $mail->Port = 587;                                    // TCP port to connect to
 
             //Recipients
             // EDIT WITH JOSH'S INFO
-            $mail->setFrom('1249700@gmail.com');
-            $mail->addAddress('1249700@gmail.com');
+            $mail->setFrom('example@gmail.com');
+            $mail->addAddress('example@gmail.com');
             $mail->addReplyTo($email);     // Add a recipient
 
             //Content
@@ -143,6 +143,7 @@ if (isset($_POST['sendMessageButton'])) {
 <body>
 <div style="clear: both;"></div>
 <div>
+    <!-- Nav -->
     <img id="title" src="images/logo.jpg">
     <ul class="nav" id="pageLinks">
         <li><a href="#">Home</a></li>
@@ -150,15 +151,15 @@ if (isset($_POST['sendMessageButton'])) {
         <li><a href="#aboutContainer">About</a></li>
         <li><a href="#galleryContainer">Gallery</a></li>
         <li><a href="#contactContainer">Contact</a></li>
-        <!--  <i id="topPhone" class="fa fa-phone fa-lg right contact" aria-hidden="true"> 715-250-3634</i> -->
         <button id="collapseBar" onclick="toggleNavPage()"><i class="fa fa-bars right fa-2x" aria-hidden="true"></i>
         </button>
     </ul>
 </div>
 
+<!-- Nav -->
 <div class="pageNav" id="fullPageMenu">
     <div class="menuContent">
-        <a id="phone" href="#"><i class="fa fa-phone fa-lg" aria-hidden="true"></i>715-250-3634</a>
+        <a id="phone" href="#"><i class="fa fa-phone fa-lg" aria-hidden="true"></i>111-111-1111</a>
         <a><img id="menuImg" src="images/logo.jpg"></a>
         <ul>
             <li><a href="#">Home</a></li>
@@ -173,12 +174,14 @@ if (isset($_POST['sendMessageButton'])) {
     </div>
 </div>
 
+<!-- Landing Image -->
 <div class="landingImg">
     <div id="landingTextContainer">
         <h1 id="landingImgTitle">Tree To Tree</h1>
     </div>
 </div>
 
+<!-- Services Section -->
 <div class="container" id="serviceContainer">
     <h1 id="serviceTitle" class="sectionTitle">Services</h1>
     <div id="serviceGrid">
@@ -208,6 +211,7 @@ if (isset($_POST['sendMessageButton'])) {
     </div>
 </div>
 
+<!--About Section -->
 <div class="aboutContainer" id="aboutContainer">
     <div class="aboutGrid">
         <div id="aboutTextContainer">
@@ -238,6 +242,7 @@ if (isset($_POST['sendMessageButton'])) {
     </div>
 </div>
 
+<!-- Image Gallery -->
 <div class="galleryContainer" id="galleryContainer">
     <h1 id="galleryTitle" class="sectionTitle">Gallery</h1>
     <div class="galleryGrid">
@@ -279,6 +284,7 @@ if (isset($_POST['sendMessageButton'])) {
     <div id="caption"></div>
 </div>
 
+<!-- Contact -->
 <div class="contactContainer" id="contactContainer">
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" id="contactForm">
         <h1 id="contactTitle" class="sectionTitle">Message</h1>
@@ -312,6 +318,7 @@ if (isset($_POST['sendMessageButton'])) {
     </form>
 </div>
 
+<!-- Footer Contact Info -->
 <div id="contactInfoBar">
     <div class="contactBox" id="box1">
         <h1 class="hide">Hours</h1>
@@ -322,8 +329,8 @@ if (isset($_POST['sendMessageButton'])) {
     <div class="contactBox" id="box2">
         <h1>Contact</h1>
         <hr>
-        <a id="contactPhone" href="#"><h2 class="contactMethod">715-250-3634</h2></a>
-        <a id="contactEmail" href="#"><h2 class="contactMethod">treetotree.josh@gmail.com</h2></a>
+        <a id="contactPhone" href="#"><h2 class="contactMethod">111-111-1111</h2></a>
+        <a id="contactEmail" href="#"><h2 class="contactMethod">example@gmail.com</h2></a>
     </div>
     <div class="contactBox" id="box3">
         <h1 class="hide">Social</h1>
