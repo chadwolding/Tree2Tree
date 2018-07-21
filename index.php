@@ -141,6 +141,7 @@ if (isset($_POST['sendMessageButton'])) {
 </head>
 
 <body>
+
 <div style="clear: both;"></div>
 <div>
     <!-- Nav -->
@@ -162,11 +163,11 @@ if (isset($_POST['sendMessageButton'])) {
         <a id="phone" href="#"><i class="fa fa-phone fa-lg" aria-hidden="true"></i>111-111-1111</a>
         <a><img id="menuImg" src="images/logo.jpg"></a>
         <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#serviceContainer">Services</a></li>
-            <li><a href="#aboutContainer">About</a></li>
-            <li><a href="#galleryContainer">Gallery</a></li>
-            <li><a href="#contactContainer">Contact</a></li>
+            <li><a onclick="toggleNavPage()" href="#">Home</a></li>
+            <li><a onclick="toggleNavPage()" href="#serviceContainer">Services</a></li>
+            <li><a onclick="toggleNavPage()" href="#aboutContainer">About</a></li>
+            <li><a onclick="toggleNavPage()" href="#galleryContainer">Gallery</a></li>
+            <li><a onclick="toggleNavPage()" href="#contactContainer">Contact</a></li>
         </ul>
         <hr>
         <h3>7 Days A Week</h3>
@@ -205,7 +206,7 @@ if (isset($_POST['sendMessageButton'])) {
                 <img src="images/estimate.jpg">
             </div>
             <h1>Free Estimates</h1>
-            <p>Done hesitate, give us a call and we'll make it out to your house as soon as we can for a free
+            <p>Don't hesitate, give us a call and we'll make it out to your house as soon as we can for a free
                 estimate.</p>
         </div>
     </div>
